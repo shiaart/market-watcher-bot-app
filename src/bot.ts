@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 
 
-bot.on('message', (ctx) => {
+bot.hears('/^[$][A-Z]', (ctx) => {
   const stock = ctx.message.text;
   console.log(stock);
 
