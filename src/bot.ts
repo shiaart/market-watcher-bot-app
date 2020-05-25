@@ -17,10 +17,8 @@ if (process.env.NODE_ENV !== 'production') {
   bot = new Telegraf(process.env.TELEGRAM_TOKEN, DefaultOptions);
 }
 
-
-
-bot.hears('/^[$][A-Z]', (ctx) => {
-  const stock = ctx.message.text;
+bot.hears(/[$]([A-Z].)/, (ctx) => {
+  const stock = ctx.message.text.trim().substring(1);
   console.log(stock);
 
   axios.get('http://45.132.18.106:5000/symbol/' + stock).then(function (response) {
@@ -31,7 +29,7 @@ bot.hears('/^[$][A-Z]', (ctx) => {
     ctx.reply(response.data.company.news[2]);
   }).catch(function (error) {
     // handle error
-    ctx.reply('No news for ' + stock);
+    ctx.reply('No news for :' + stock);
   });
   // return ctx.reply(`Recognized: ${stock}`);
 });
