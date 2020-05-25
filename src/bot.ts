@@ -23,10 +23,10 @@ bot.hears(/[$]([A-Z]+)/, (ctx) => {
 
   axios.get('http://45.132.18.106:5000/symbol/' + stock).then(function (response) {
     // handle success
-    console.log(response);
+    // console.log(response);
     ctx.reply(response.data.company.news[0]);
-    ctx.reply(response.data.company.news[1]);
-    ctx.reply(response.data.company.news[2]);
+    // ctx.reply(response.data.company.news[1]);
+    // ctx.reply(response.data.company.news[2]);
   }).catch(function (error) {
     // handle error
     ctx.reply('No news for :' + stock);

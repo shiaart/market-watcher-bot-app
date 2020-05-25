@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "start": "npm run serve",
+    "dev":  "npm run build && NODE_ENV=dev node dist/bot.js",
     "serve": "NODE_ENV=production node dist/bot.js",
     "build": "npm run build-ts && npm run tslint",
     "build-ts": "tsc",
