@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
   bot = new Telegraf(process.env.TELEGRAM_TOKEN, DefaultOptions);
 }
 
-bot.hears(/[$]([A-Z].)/, (ctx) => {
+bot.hears(/[$]([A-Z]+)/, (ctx) => {
   const stock = ctx.message.text.trim().substring(1);
   console.log(stock);
 
